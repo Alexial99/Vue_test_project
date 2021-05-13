@@ -31,7 +31,7 @@ const store =new Vuex.Store({
         setLog:(state,user)=>{
             if(!state.users){state.users={};}
             if(state.users[user.username]){
-                state.users[user.username].log.push(user.log);
+                state.users[user.username].log.unshift(user.log);
             }
         }
 },

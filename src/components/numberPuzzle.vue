@@ -117,21 +117,26 @@
                 if (e.stopPropagation) {
                     e.stopPropagation();
                 }
+                let x = parseInt(this.dragSrcEl.innerText);
+                let index = this.cells.indexOf(x);
+                let empty =this.cells.indexOf('empty');
 
+                if(!(index===empty+1||index===empty-1||index===empty+4||index===empty-4))return false;
                 if (this.dragSrcEl !== _this) {
                     let c;
-                    let x = parseInt(this.dragSrcEl.innerText);
-                    let index = this.cells.indexOf(x);
+
 
                     this.cells[this.cells.indexOf('empty')] = x;
                     this.cells[index] = 'empty';
+                    console.log( this.cells);
                     if (this.won(this.cells)) {
                         c = true;
                     } else {
+
                     }
 
                     this.dragSrcEl.innerHTML = _this.innerHTML;
-                    console.log(typeof this.dragSrcEl);
+
                     this.dragSrcEl.addEventListener('dragover', this.handleDragOver, false);
                     this.dragSrcEl.addEventListener('drop', this.handleDrop, false);
 

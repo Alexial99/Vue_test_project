@@ -63,6 +63,10 @@
                 alert("hi");
             },
             auth: function (username, role) {
+                if (!username){
+                    alert('Пожалйста, введите имя!');
+                    return false;
+                }
                 auth.login(username, role);
                 this.$router.push('profile').then(e => console.log(e));
 

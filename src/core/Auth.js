@@ -72,16 +72,14 @@ export default class Auth {
         }
         let matched;
         for (let items of profile.role) {
-
-            for (let item of items) {
-
                 for (let i of roles) {
-
-                    if (item.toLowerCase() === i.toLowerCase()) {
+                    if (items.toLowerCase() === i.toLowerCase()) {
                         matched = true;
-
+                        break;
                     }
                 }
+            if(matched){
+                break;
             }
         }
         return !!matched;

@@ -8,7 +8,7 @@ export default class UserManager{
     static getToken(username, role) {
         if (store.getters.getUsers[username]) {
             const jwt = require('jsonwebtoken');
-            return jwt.sign({username: username, role: [role]}, TOKEN_SECRET, {expiresIn: '1800s'});
+            return jwt.sign({username: username, role: role}, TOKEN_SECRET, {expiresIn: '12h'});
         } else {
             throw new UserNotFoundError();
         }

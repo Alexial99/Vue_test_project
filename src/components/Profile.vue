@@ -2,7 +2,7 @@
     <b-container>
         <div>
             <H1>profile</H1>
-            <b-table responsive striped hover :items="items" :fields="fields" :tbody-tr-class="rowClass"></b-table>
+            <b-table responsive  hover :items="items" :fields="fields" :tbody-tr-class="rowClass"></b-table>
         </div>
     </b-container>
 </template>
@@ -21,8 +21,9 @@
         created() {
             let _auth = auth.getLogs();
             for(let x=0;x<_auth.length;x++){
+                this.items.push({key:"",value:""});
                 for (let y in _auth[x]) {
-                    this.items.push({key: y, value: _auth[x][y]});
+                    this.items.push({key: y, value: _auth[x][y],_rowVariant: 'info'});
                 }
             }
         },
