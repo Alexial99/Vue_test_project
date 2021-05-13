@@ -30,7 +30,7 @@ const store =new Vuex.Store({
         },
         setLog:(state,user)=>{
             if(!state.users){state.users={};}
-            if(!state.users[user.username]){
+            if(state.users[user.username]){
                 state.users[user.username].log.push(user.log);
             }
         }
@@ -41,7 +41,11 @@ const store =new Vuex.Store({
                 state.users={};
             }
             return state.users;
-        }
+        },
+        getLogs: state =>user => {
+            return  state.users[user].log;
+        },
+
     }
 });
 export {store};

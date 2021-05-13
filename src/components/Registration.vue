@@ -9,7 +9,7 @@
                     <label for="input-username">Username:</label>
                 </b-col>
                 <b-col cols="1" sm="1" md="auto" lg="1" xl="auto"></b-col><!--sm="1" md="1" lg="1"></b-col>-->
-                <b-col cols="6" sm="5" md="5" lg="3" xl="3">
+                <b-col cols="6" sm="6" md="5" lg="3" xl="3">
                     <b-form-input v-model="username" id="input-username" size="sm"
                                   placeholder="введите имя"></b-form-input>
                 </b-col>
@@ -23,7 +23,7 @@
                         авторизоваться
                     </b-button>
                 </b-col>
-                <b-col cols="12" sm="1" md="auto" lg="auto"></b-col>
+                <b-col cols="12" sm="2" md="1" lg="auto"></b-col>
                 <b-col sm="6" md="5" lg="4" xl="3">
                     <b-button v-on:click="auth(username,['user','new'])">
                         авторизоваться with user
@@ -61,9 +61,6 @@
         methods: {
             hi: function () {
                 alert("hi");
-            },
-            myString() {
-                return this.$store.state.token;
             },
             auth: function (username, role) {
                 auth.login(username, role);

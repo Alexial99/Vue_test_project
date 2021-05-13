@@ -15,7 +15,9 @@ export default class Auth {
         try {
             token = UserManager.getToken(username, role);
         } catch (e) {
+
             if (e instanceof UserNotFoundError) {
+
                 UserManager.signUpUser(username);
                 token = UserManager.getToken(username, role);
             } else {
@@ -24,12 +26,15 @@ export default class Auth {
         }
         store.commit("saveToken", token);
         let decoded = tokenDecoder();
-        console.log(decoded);
+       // console.log(decoded);
         createActiveProfile(decoded);
 
-        let log = new Log(Log.types.login, new Date(), window.navigator.userAgent, role);
 
+        let log = new Log(Log.types.login, new Date(), window.navigator.userAgent, role);
         UserManager.setLog(username, log);
+        /*//UserManager.getLogs(username);*/
+    /*    console.log(decoded);
+        console.log(log);*/
 
     }
 
@@ -62,7 +67,6 @@ export default class Auth {
     static checkRole(roles) {
 
         let profile = Auth.getActiveProfile();
-        console.log(profile);
         if (!profile || !profile.role || !Array.isArray(profile.role)) {
             return false;
         }
@@ -75,8 +79,7 @@ export default class Auth {
 
                     if (item.toLowerCase() === i.toLowerCase()) {
                         matched = true;
-                        console.log(i);
-                        //  return true;
+
                     }
                 }
             }
@@ -90,6 +93,10 @@ export default class Auth {
 
     static getActiveProfile() {
         return activeProfile;
+    }
+
+    static getLogs(){
+        return  UserManager.getLogs(activeProfile.username.toString());
     }
 
 }
@@ -120,6 +127,6 @@ function tokenDecoder() {
 function redirectToAuth() {
 
     if (router.currentRoute.path !== "/registration") {
-        router.push("registration").catch(e => console.log(e));
+        router.push("registration").catch(e => console.log(""));
     }
 }

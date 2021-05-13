@@ -19,18 +19,19 @@
             }
         },
         created() {
-            let _auth = auth.getActiveProfile();
-            console.log(_auth);
-            for (let a in _auth) {
-                this.items.push({key: a, value: _auth[a]});
-                console.log(a);
+            let _auth = auth.getLogs();
+            for(let x=0;x<_auth.length;x++){
+                for (let y in _auth[x]) {
+                    this.items.push({key: y, value: _auth[x][y]});
+                }
             }
         },
         methods: {
             rowClass(item, type) {
                 if (!item || type !== 'row') return
                 if (item.status === 'awesome') return 'table-success'
-            }
+            },
+
         }
 
     }
