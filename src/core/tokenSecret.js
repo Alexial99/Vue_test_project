@@ -1,0 +1,2 @@
+const TOKEN_SECRET ="9d1415a9fcb6f5cba83d8202842f1496d68561db163613dabbc5c075d93c319ab6cd1c91c05cbb210e007caf8f3ad7ddbc4a5f60de5654de3fe4f9f033b90bca";
+export default TOKEN_SECRET;
