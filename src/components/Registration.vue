@@ -8,7 +8,7 @@
                 <b-col cols="2" sm="2" md="1" lg="1" xl="1">
                     <label for="input-username">Username:</label>
                 </b-col>
-                <b-col cols="1" sm="1" md="auto" lg="1" xl="auto"></b-col><!--sm="1" md="1" lg="1"></b-col>-->
+                <b-col cols="1" sm="1" md="auto" lg="1" xl="auto"></b-col>
                 <b-col cols="6" sm="6" md="5" lg="3" xl="3">
                     <b-form-input v-model="username" id="input-username" size="sm"
                                   placeholder="введите имя"></b-form-input>
@@ -18,13 +18,13 @@
             <br/>
             <b-row>
                 <b-col sm="2" md="3" lg="4" xl="4"></b-col>
-                <b-col sm="1" md="1" lg="1" xl="1">
+                <b-col style="margin-top: 10px" sm="1" md="1" lg="1" xl="1">
                     <b-button id="buttonProfile" v-on:click="auth(username,[])">
                         авторизоваться
                     </b-button>
                 </b-col>
-                <b-col cols="12" sm="2" md="1" lg="auto"></b-col>
-                <b-col sm="6" md="5" lg="4" xl="3">
+                <b-col sm="2" md="1" lg="auto"></b-col>
+                <b-col style="margin-top: 10px" sm="6" md="5" lg="4" xl="3">
                     <b-button v-on:click="auth(username,['user','new'])">
                         авторизоваться with user
                     </b-button>
@@ -34,7 +34,6 @@
 
             </b-row>
         </b-container>
-
 
     </div>
 </template>
